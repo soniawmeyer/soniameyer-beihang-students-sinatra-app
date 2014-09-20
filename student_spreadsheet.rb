@@ -1,5 +1,6 @@
 require "rubygems"
 require "google_drive"
+require './credentials'
 require "./student"
 require "./grade"
 
