@@ -1,4 +1,4 @@
 require 'sinatra'
-require_relative 'website'
+require './website'
 
 run Sinatra::Application
