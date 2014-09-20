@@ -1,4 +1,4 @@
-require_relative "grade"
+require "./grade"
 
 class Student
   

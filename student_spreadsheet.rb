@@ -1,7 +1,7 @@
 require "rubygems"
 require "google_drive"
-require_relative "student"
-require_relative "grade"
+require "./student"
+require "./grade"
 
 
 class StudentSpreadsheet

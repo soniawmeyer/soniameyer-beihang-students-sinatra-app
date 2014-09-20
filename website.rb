@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'kramdown'
-require_relative 'student_spreadsheet'
+require './student_spreadsheet'
 require "google_drive"
 
 
