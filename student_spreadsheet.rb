@@ -27,10 +27,13 @@ class StudentSpreadsheet
     
     grades = []
     
-    for i in 20..23
-      name = @worksheet[1,i+1]
+    for i in 4..12
       earned = ssrow[i]
-      grades << Grade.new(name,earned)
+      
+      if earned != ''
+        name = @worksheet[1,i+1]
+        grades << Grade.new(name,earned)
+      end
     end
     
     return Student.new(ssrow[0],ssrow[1],ssrow[2],ssrow[3],grades)
