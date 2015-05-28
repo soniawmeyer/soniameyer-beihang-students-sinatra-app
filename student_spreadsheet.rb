@@ -11,7 +11,7 @@ class StudentSpreadsheet
   
   def initialize
     credentials = Credentials.new
-    session = GoogleDrive.login(credentials.email, credentials.password)
+    session = GoogleDrive.login_with_oauth(credentials.access_token)
     @worksheet = session.spreadsheet_by_key("1LqJXjZ9oX4wkuzy2XUisdPMQ2ttlorfha1e8n5RZ1rM").worksheets[0]
   end
 
