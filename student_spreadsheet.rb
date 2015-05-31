@@ -27,8 +27,8 @@ class StudentSpreadsheet
     for i in 4..12
       earned = ssrow[i]
       
-      if earned != ''
-        name = @worksheet[0][i+1]
+      if earned && (earned != '' || earned != 'X')
+        name = @worksheet[0][i]
         grades << Grade.new(name,earned)
       end
     end
