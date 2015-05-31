@@ -1,6 +1,5 @@
 require "rubygems"
-require "google_drive"
-require './credentials'
+require 'csv'
 require "./student"
 require "./grade"
 
@@ -10,14 +9,12 @@ class StudentSpreadsheet
   attr_accessor :worksheet
   
   def initialize
-    credentials = Credentials.new
-    session = GoogleDrive.login_with_oauth(credentials.access_token)
-    @worksheet = session.spreadsheet_by_key("1LqJXjZ9oX4wkuzy2XUisdPMQ2ttlorfha1e8n5RZ1rM").worksheets[0]
+    @worksheet = CSV.read('grades.csv')
   end
 
   def get_ss_with_ssnum (ssnum)
     
-    ssrow = @worksheet.rows.detect do |row|
+    ssrow = @worksheet.detect do |row|
       row[1]==ssnum
     end
     
@@ -31,7 +28,7 @@ class StudentSpreadsheet
       earned = ssrow[i]
       
       if earned != ''
-        name = @worksheet[1,i+1]
+        name = @worksheet[0][i+1]
         grades << Grade.new(name,earned)
       end
     end

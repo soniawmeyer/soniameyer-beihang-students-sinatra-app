@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'kramdown'
 require './student_spreadsheet'
-require "google_drive"
 
 post '/grades' do
   redirect to("/grades/#{params[:ssnum]}")
